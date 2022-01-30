@@ -10,9 +10,7 @@ router.get("/", (req, res) => {
     include: [{ model: Product }],
   })
     .then((categoryData) => res.json(categoryData))
-    .catch((err) => {
-      res.status(500).json(err);
-    });
+    .catch((err) => res.status(500).json(err));
 });
 
 router.get("/:id", (req, res) => {
@@ -31,20 +29,14 @@ router.get("/:id", (req, res) => {
       }
       res.json(categoryData);
     })
-    .catch((err) => {
-      res.status(500).json(err);
-    });
+    .catch((err) => res.status(500).json(err));
 });
 
 router.post("/", (req, res) => {
   // create a new category
   Category.create(req.body)
-    .then((categoryData) => {
-      res.json(categoryData);
-    })
-    .catch((err) => {
-      res.status(500).json(err);
-    });
+    .then((categoryData) => res.json(categoryData))
+    .catch((err) => res.status(500).json(err));
 });
 
 router.put("/:id", (req, res) => {
@@ -61,9 +53,7 @@ router.put("/:id", (req, res) => {
       }
       res.json(categoryData);
     })
-    .catch((err) => {
-      res.status(500).json(err);
-    });
+    .catch((err) => res.status(500).json(err));
 });
 
 router.delete("/:id", (req, res) => {
@@ -80,9 +70,7 @@ router.delete("/:id", (req, res) => {
       }
       res.json(categoryData);
     })
-    .catch((err) => {
-      res.status(500).json(err);
-    });
+    .catch((err) => res.status(500).json(err));
 });
 
 module.exports = router;
